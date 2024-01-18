@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="shortcut icon" href="icons8-javascript-48.png" type="image/x-icon">
+     <title>BoxShadowGenerator | Javascript</title>
+     <style>
+          body {
+               height: 100vh;
+               width: 100vw;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               /* 35px 2px 2px 2px #000000 */
+               /* background: rgb(63, 94, 251); */
+               overflow:hidden;
+               background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+          }
+
+          .box {
+               text-align: center;
+               width: 300px;
+               padding: 16px;
+               margin: 32px;
+               font-family: sans-serif;
+          }
+
+          .box>input {
+               margin: 8px 0;
+               display: block;
+               width: 100%;
+
+
+          }
+     </style>
+</head>
+
+<body>
+     <div class="box">
+          <label for="">offset x</label>
+          <input type="range" class="offset-x" min="0" max="100" value="2">
+          <label for="">offset Y</label>
+          <input type="range" class="offset-y" min="0" max="100" value="2">
+          <label for="">Blur Radius</label>
+          <input type="range" class="blur-radius" min="0" max="100" value="2">
+          <label for="">Blur Spread</label>
+          <input type="range" class="blur-spread" min="0" max="100" value="2">
+          <label for="">Color</label>
+          <input type="color" class="color" value="#00000">
+          <input type="text" readonly class="css-value" onclick value=" ">
+     </div>
+     <script>
+          const box = document.querySelector(".box");
+          const x = document.querySelector(".offset-x");
+          const y = document.querySelector(".offset-y");
+          const radius = document.querySelector(".blur-radius");
+          const spread = document.querySelector(".blur-spread");
+          const color = document.querySelector(".color");
+          // shift+alt+down arrow for duplicate a line in VS CODE
+          const cssValue = document.querySelector(".css-value");
+
+          function updateBoxShadow() {
+               const v = `${x.value}px ${y.value}px ${radius.value}px ${spread.value}px ${color.value}`;
+               cssValue.value = v;
+               box.style.boxShadow = v;
+          }
+          [x, y, radius, spread, color].forEach(e => {
+               e.oninput = updateBoxShadow;
+          });
+          updateBoxShadow();
+     </script>
+</body>
+
+</html>
