@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <link rel="stylesheet" href="ide.css">
+     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+     <section class="section">
+          <div class="btn-section">
+          <button id="btn-dark">Dark-Mode</button>
+          <button id="btn-light">Light-Mode</button>
+          </div>
+          <h1>Code Editor</h1>
+          <div class="editor">
+               <!-- <button id="btn">Dark Mode</button> -->
+               <div class="left">
+                    <label for="">HTML<i class='bx bxl-html5'></i></label>
+                    <textarea onkeyup="run()" spellcheck="false" id="html-code">
+
+                    </textarea>
+
+                    <label for="">CSS <i class='bx bxl-css3' ></i></label>
+                    <textarea onkeyup="run()" spellcheck="false"  id="css-code">
+                         
+                    </textarea>
+
+                    <label for="">JavaScript 
+                         <i class='bx bxs-file-js' ></i>
+                    </label>
+                    <textarea  onkeyup="run()" id="js-code" spellcheck="false">
+                         
+                    </textarea>
+               </div>
+               <div class="right">
+                    <label >Output <i class='bx bx-play' ></i></label>
+                    <iframe id="output"></iframe>
+               </div>
+          </div>
+     </section>
+     <script src="ide.js"></script>
+</body>
+</html>
