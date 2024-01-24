@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Form Submit || javascript</title>
+      <script src="https://kit.fontawesome.com/1732fd3228.js" crossorigin="anonymous"></script>
+     <style>
+          * {
+               margin: 0;
+               padding: 0;
+               box-sizing: border-box;
+          }
+
+          body {
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               height: 100vh;
+               width: 100vw;
+          }
+
+          fieldset {
+               display: flex;
+               flex-flow: column wrap;
+               gap: 20px;
+               padding: 30px;
+          }
+
+          .submit-btn {
+               padding-inline: 10px;
+               padding-block: 3px;
+          }
+          p{
+               transition: all 0.8s ease;
+          }
+          .myStyle
+          {
+               position:absolute;
+               backdrop-filter: blur(3px);
+               font-size:35px;padding-inline:8px;padding-block:3px;
+          }
+          .fa-solid
+          {
+               visibility:hidden;
+               position:absolute;
+               top:332px;
+               transition: all 0.8s ease;
+          }
+          .show
+          {
+               visibility: visible;
+               
+          }
+     </style>
+</head>
+
+<body>
+     <form>
+          <fieldset>
+               <legend>javascript || Form</legend>
+               <div>
+                    <label for="fname">First Name:-</label>
+                    <input class="f-name" type="text" id="fname">
+               </div>
+               <div>
+                    <label for="lname">Last Name:-&nbsp;</label>
+                    <input class="l-name" type="text" id="lname">
+               </div>
+               <div>
+                    <input class="submit-btn" type="submit">
+               </div>
+          </fieldset>
+     </form>
+     <p class="para"></p>
+     <div class="cut"><i class="fa-solid fa-xmark"></i></div>
+     <script>
+          const form=document.querySelector("form");
+          const lname=document.getElementById("lname");
+          const fname = document.getElementById("fname");
+          const para = document.querySelector("p");
+          const cutBtn = document.querySelector(".fa-solid");
+          form.addEventListener("submit",function(e){
+               if(fname.value === "" || lname.value === ""){
+                    e.preventDefault();
+                    para.textContent="you need to fill both ";
+                    // para.style.cssText="font-size:35px;padding-inline:8px;padding-block:3px;"
+                    para.classList.add("myStyle");
+                    cutBtn.classList.add("show");
+               }
+          },false);
+          cutBtn.addEventListener("click",()=>{
+               para.classList.remove("myStyle");
+               para.textContent=" ";
+               cutBtn.classList.remove("show");
+          },false);
+     </script>
+</body>
+
+</html>

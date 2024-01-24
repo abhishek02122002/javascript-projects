@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Random Color Generator || javascript</title>
+     <style>
+          * {
+               margin: 0;
+               padding: 0;
+               box-sizing: border-box;
+          }
+
+          body {
+               height: 100vh;
+               width: 100vw;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               /* background-color: #fff; */
+          }
+
+          button {
+               padding-inline: 20px;
+               padding-block: 12px;
+               border-radius: 5px;
+
+          }
+     </style>
+</head>
+
+<body>
+     <button class="btn">
+          Change Color
+     </button>
+     <script>
+          const btn = document.querySelector(".btn");
+          function rndNumber(min,max)
+          {
+               return Math.floor(Math.random() * (max-min)) + min;
+          }
+          btn.addEventListener("click",function(){
+               const rndColor = `rgb(${rndNumber(0,255)} ,${rndNumber(0,255)}, ${rndNumber(0,255)}) `;
+               document.body.style.backgroundColor=rndColor;
+          },true);
+     </script>
+</body>
+
+</html>
